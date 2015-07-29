@@ -1,6 +1,42 @@
-
 var oJSONBuilder = function (_c, _j) {
     $(function () {
+            if($(".js-ldr").length == 0){
+        $("body").append("<div class='js-ldr'></div>");
+    }else{
+    $(".js-ldr").fadeIn(100);
+    }
+    if(_j.assets)
+    {
+    if (_j.assets.jsPre) {
+            for (var i = 0; i < _j.assets.jsPre.length; i++) {
+                //console.log(_j.assets.jsPre[i])
+                if($.isArray(_j.assets.jsPre[i]))
+                {
+                    
+                    $.getScript(_j.assets.jsPre[i][0]).done(function(a,b){
+                        window[_j.assets.jsPre[i][1]]();    
+                    });
+                }else{
+                $.getScript(_j.assets.jsPre[i]);
+                    //console.log("Link : "+_j.assets.jsPre[i])
+                }
+                
+            }
+    }
+        if(_j.assets.cssPre)
+        {
+            for (var i = 0; i < _j.assets.cssPre.length; i++) {
+                var head = $("head")[0];
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = _j.assets.cssPre[i];
+                head.appendChild(link);
+            }
+        }
+        }
+        
+        
         if (_j.structure.type == "table") {
             var jCon = _j.structure.config;
             for (var i = 0; i < _j.structure.data.length; i++) {
@@ -50,28 +86,37 @@ var oJSONBuilder = function (_c, _j) {
                 $(_c)[0].innerHTML += _ht
             }
         }
-        if (_j.assets) {
-            for (var i = 0; i < _j.assets.js.length; i++) {
-                
-                if($.isArray(_j.assets.js[i]))
+        if (_j.assets)
+        {
+        if(_j.assets.jsPost){
+            for (var i = 0; i < _j.assets.jsPost.length; i++) {
+                //console.log(_j.assets.jsPost[i])
+                if($.isArray(_j.assets.jsPost[i]))
                 {
                     
-                    $.getScript(_j.assets.js[i][0]).done(function(a,b){
-                        window[_j.assets.js[i][1]]();    
+                    $.getScript(_j.assets.jsPost[i][0]).done(function(a,b){
+                        window[_j.assets.jsPost[i][1]]();    
                     });
                 }else{
-                $.getScript(_j.assets.js[i]);
+                $.getScript(_j.assets.jsPost[i]);
+                    //console.log("Link : "+_j.assets.jsPost[i])
                 }
                 
-            }
-            for (var i = 0; i < _j.assets.css.length; i++) {
+            }}
+        if(_j.assets.cssPost)
+        {
+            for (var i = 0; i < _j.assets.cssPost.length; i++) {
                 var head = $("head")[0];
                 var link = document.createElement('link');
                 link.rel = 'stylesheet';
                 link.type = 'text/css';
-                link.href = _j.assets.css[i];
+                link.href = _j.assets.cssPost[i];
                 head.appendChild(link);
             }
+        }
+        $(".js-ldr").delay(500).fadeOut(50);
+        }else{
+        $(".js-ldr").fadeOut(50);
         }
     })
 }
