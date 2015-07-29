@@ -36,15 +36,15 @@ var oJSONBuilder = function (_c, _j) {
         
         
         if (_j.structure.type == "table") {
-            var jCon = _j.structure.config;
+            var jCon = _j.structure.prop;
             for (var i = 0; i < _j.structure.data.length; i++) {
                 var mRow = "";
                 var jD = _j.structure.data[i];
-                if (jD.config.class && jCon.class) {
-                    jD.config.class += " " + jCon.class;
+                if (jD.prop.class && jCon.class) {
+                    jD.prop.class += " " + jCon.class;
                 }
                 var _ht = "<table "
-                $.each($.extend({}, jCon, jD.config), function (key, val) {
+                $.each($.extend({}, jCon, jD.prop), function (key, val) {
                     _ht += key + "='" + val + "' ";
                 });
                 _ht += ">"
