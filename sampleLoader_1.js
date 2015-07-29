@@ -1,5 +1,5 @@
 console.log("sampleLoader_1 Loaded")
 function submitData(obj){
   console.log(obj)
-  alert(obj.id)
+  alert(JSON.stringify(obj))
 }
