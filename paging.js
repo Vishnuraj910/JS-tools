@@ -134,3 +134,12 @@ $.prototype.extend({
         })
     }
 })
+ if (jQuery().oneSimpleTablePagination) {
+            $("[max-row]").filter(function () {
+                return $(this).attr("max-row") > 0;
+            }).oneSimpleTablePagination({
+                rowFromTab: true
+            });
+        }
+
+    
