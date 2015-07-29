@@ -1,3 +1,4 @@
+console.log("Paging loaded");
 $.prototype.extend({
     'oneSimpleTablePagination': function (userConfigurations) {
 
