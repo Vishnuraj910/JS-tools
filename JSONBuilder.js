@@ -2,22 +2,7 @@ var oJSONBuilder = function (_c, _j) {
 
 $(function(){
 	
-    if(_j.assets){
-    for(var i=0;i<_j.assets.js.length;i++)
-    {
-        $.getScript(_j.assets.js[i]);
-    }
-        for(var i=0;i<_j.assets.css.length;i++)
-    {
-        var head  = $("head")[0];
-    var link  = document.createElement('link');
-    link.rel  = 'stylesheet';
-    link.type = 'text/css';
-    link.href = _j.assets.css[i]
-    head.appendChild(link);
-    }
-    }
-    
+
     
 	if (_j.structure.config.type == "table") {
         var jCon = _j.structure.config;
@@ -84,6 +69,22 @@ $(function(){
 
 
     }
+        if(_j.assets){
+    for(var i=0;i<_j.assets.js.length;i++)
+    {
+        $.getScript(_j.assets.js[i]);
+    }
+        for(var i=0;i<_j.assets.css.length;i++)
+    {
+        var head  = $("head")[0];
+    var link  = document.createElement('link');
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = _j.assets.css[i]
+    head.appendChild(link);
+    }
+    }
+    
 	
 })
     
