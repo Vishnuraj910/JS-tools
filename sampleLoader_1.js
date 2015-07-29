@@ -3,3 +3,6 @@ function submitData(obj){
   console.log(obj)
   alert(JSON.stringify(obj))
 }
+function sampleLoaded(){
+  alert("Called back")
+}
