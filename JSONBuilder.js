@@ -9,7 +9,6 @@ var oJSONBuilder = function (_c, _j) {
     {
     if (_j.assets.jsPre) {
             for (var i = 0; i < _j.assets.jsPre.length; i++) {
-                //console.log(_j.assets.jsPre[i])
                 if($.isArray(_j.assets.jsPre[i]))
                 {
                     
@@ -18,7 +17,6 @@ var oJSONBuilder = function (_c, _j) {
                     });
                 }else{
                 $.getScript(_j.assets.jsPre[i]);
-                    //console.log("Link : "+_j.assets.jsPre[i])
                 }
                 
             }
@@ -90,7 +88,6 @@ var oJSONBuilder = function (_c, _j) {
         {
         if(_j.assets.jsPost){
             for (var i = 0; i < _j.assets.jsPost.length; i++) {
-                //console.log(_j.assets.jsPost[i])
                 if($.isArray(_j.assets.jsPost[i]))
                 {
                     
@@ -99,7 +96,6 @@ var oJSONBuilder = function (_c, _j) {
                     });
                 }else{
                 $.getScript(_j.assets.jsPost[i]);
-                    //console.log("Link : "+_j.assets.jsPost[i])
                 }
                 
             }}
