@@ -2,12 +2,29 @@ var oJSONBuilder = function (_c, _j) {
 
 $(function(){
 	
-	if (_j.config.type == "table") {
-        var jCon = _j.config;
+    if(_j.assets){
+    for(var i=0;i<_j.assets.js.length;i++)
+    {
+        $.getScript(_j.assets.js[i]);
+    }
+        for(var i=0;i<_j.assets.css.length;i++)
+    {
+        var head  = $("head")[0];
+    var link  = document.createElement('link');
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = _j.assets.css[i]
+    head.appendChild(link);
+    }
+    }
+    
+    
+	if (_j.structure.config.type == "table") {
+        var jCon = _j.structure.config;
 
-        for (var i = 0; i < _j.data.length; i++) {
+        for (var i = 0; i < _j.structure.data.length; i++) {
             var mRow = "";
-            var jD = _j.data[i]
+            var jD = _j.structure.data[i]
             if (jD.config) {
                 mRow = jD.config.maxRow ? jD.config.maxRow : "";
                 //console.log("Max Row"+mRow);
@@ -61,6 +78,7 @@ $(function(){
             //console.log(_ht)
             //fullString += _ht;
             $(_c)[0].innerHTML += _ht
+           
 
         }
         if (jQuery().oneSimpleTablePagination) {
