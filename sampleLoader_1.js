@@ -4,5 +4,5 @@ function submitData(obj){
   
 }
 function sampleLoaded(){
-  //alert("Called back")
+  console.log("Called back")
 }
