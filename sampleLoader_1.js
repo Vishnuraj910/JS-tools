@@ -1,8 +1,8 @@
-//console.log("sampleLoader_1 Loaded")
-function submitData(obj){
-  console.log(obj)
-  
+console.log("sampleLoader_1 Loaded")
+function submitData(obj) {
+    console.log(obj)
+
 }
-function sampleLoaded(){
-  //alert("Called back")
+function sampleLoaded() {
+    console.log("Called back")
 }
