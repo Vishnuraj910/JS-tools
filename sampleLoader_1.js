@@ -1,4 +1,4 @@
-//console.log("sampleLoader_1 Loaded")
+console.log("sampleLoader_1 Loaded")
 function submitData(obj){
   console.log(obj)
   
